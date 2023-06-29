@@ -68,6 +68,10 @@ input{
   color: #f9f9f9;
 }
 
+.pass{
+  max-width: 900px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
