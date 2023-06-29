@@ -4,7 +4,8 @@ import Input from "./components/input/input"
 export default function App(){
   const [password, setPassword] = useState("")
   const [copyText, setCopyText] = useState("Copiar")
-  const [passwordSize, setPasswordSize] = useState(12)
+  const [passwordSize, setPasswordSize] = useState(8)
+  const [showInput, setShowInput] = useState(false)
 
 
   function generate(){
@@ -34,11 +35,22 @@ export default function App(){
   return(
     <div className="app">
       <h1>Gerador de senhas</h1>
+      <div className="checkBox">
+        <label htmlFor="showInput" id="showInput">Customizar tamanho</label>
+        <input 
+        type="checkbox" 
+        id="showInput"
+        value={showInput}
+        onChange={() => setShowInput(currentState => !currentState)}
+        />
+      </div>
+      {showInput ? (
       <div>
         <label htmlFor="passwordSize">Tamanho: </label>
         <Input passwordSize={passwordSize} setPasswordSize={setPasswordSize}/>
       </div>
-      <button onClick={generate}>Gerar senha de {passwordSize} caracters</button>
+      ) : null }
+      <button onClick={generate}>Gerar senha de {showInput ? passwordSize : 8} caracters</button>
       <button onClick={copyToClipBoard}>{copyText}</button>
       <div className="pass">{password}</div>
     </div>

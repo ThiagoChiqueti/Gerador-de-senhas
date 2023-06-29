@@ -72,6 +72,11 @@ input{
   max-width: 900px;
 }
 
+.checkBox{
+  font-size: 1rem;
+  margin-bottom: 40px;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     color: #213547;
